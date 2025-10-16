@@ -1,0 +1,17 @@
+workflows:
+  cordova-android-release:
+    name: Cordova Android Release Build
+    environment:
+      node: 16.0
+      android: true
+    scripts:
+      - echo "🔧 Instalando Cordova..."
+      - npm install -g cordova
+      - echo "📦 Instalando dependências..."
+      - npm install
+      - echo "📱 Adicionando plataforma Android..."
+      - cordova platform add android
+      - echo "🚀 Compilando APK em modo release..."
+      - cordova build android --release
+    artifacts:
+      - platforms/android/app/build/outputs/apk/release/*.apk
