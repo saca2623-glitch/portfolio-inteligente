@@ -7,7 +7,9 @@ workflows:
     scripts:
       - echo "Instalando Cordova..."
       - npm install -g cordova
-      - echo "Instalando dependências..."
+      - echo "Instalando dependencias..."
       - npm install
+      - echo "Compilando APK..."
+      - cordova build android --release
     artifacts:
       - platforms/android/app/build/outputs/apk/release/*.apk
